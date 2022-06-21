@@ -4,7 +4,7 @@ import random
 from threading import Thread
 from time import sleep, perf_counter
 
-images = Path("people").rglob("*")
+images = Path("images").rglob("*")
 
 model = torch.hub.load("ultralytics/yolov5", "yolov5n6")
 

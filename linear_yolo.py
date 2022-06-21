@@ -1,9 +1,8 @@
 from pathlib import Path
 import torch
-from threading import Thread
 from time import perf_counter
 
-images = Path("people").rglob("*")
+images = Path("images").rglob("*")
 
 model = torch.hub.load("ultralytics/yolov5", "yolov5x6")
 
