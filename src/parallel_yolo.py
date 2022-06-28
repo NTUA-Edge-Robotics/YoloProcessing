@@ -4,8 +4,12 @@ from time import perf_counter_ns
 
 from infere import infere
 
-def parallel_yolo(images, model_name:str, the_device:str):
-    model = torch.hub.load("ultralytics/yolov5", model_name, device=the_device)
+def parallel_yolo(images, model_name:str, use_cpu:bool):
+    if use_cpu:
+        model = torch.hub.load("ultralytics/yolov5", model_name, device="cpu")
+    else:
+        model = torch.hub.load("ultralytics/yolov5", model_name)
+    
     times = []
     threads = []
 
@@ -21,5 +25,7 @@ def parallel_yolo(images, model_name:str, the_device:str):
 
     end_time = perf_counter_ns()
     total_time = (end_time - start_time) / 1000000
+
+    torch.cuda.empty_cache()
 
     return total_time, times
