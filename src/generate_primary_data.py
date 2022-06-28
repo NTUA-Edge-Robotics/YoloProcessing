@@ -21,14 +21,14 @@ args = parser.parse_args()
 all_images = list(Path(args.images).rglob("*"))
 model = args.model
 mode = args.mode
-batches = [1, 5, 10]#[1] + list(range(5, 101, 5))
+batches = [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]
 results = pandas.DataFrame()
 
 # Create results directory if not exists
 os.makedirs(os.path.dirname(args.results), exist_ok=True)
 
-for num_images in batches:
-    images_to_infer = all_images[:num_images]
+for batch_size in batches:
+    images_to_infer = all_images[:batch_size]
 
     if (mode == "linear"):
         total_time, times = linear_yolo(images_to_infer, model, args.use_cpu)
@@ -38,7 +38,7 @@ for num_images in batches:
     frame = pandas.DataFrame(data = times, columns=["processing", "inference", "nms"])
 
     frame["experiment_time"] = total_time
-    frame["num_images"] = num_images
+    frame["batch_size"] = batch_size
 
     results = pandas.concat([results, frame], ignore_index=True)
 
