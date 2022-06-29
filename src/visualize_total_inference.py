@@ -1,12 +1,7 @@
 import pandas
 from matplotlib import pyplot
 
-def preprocess(frame:pandas.DataFrame):
-    frame["average_time"] = (frame["processing"] + frame["inference"] + frame["nms"]) / 1000
-    frame["experiment_time"] = frame["experiment_time"] / 1000
-    frame = frame.groupby("batch_size", as_index=False).mean()
-
-    return frame
+from preprocess import preprocess
 
 parallel = pandas.read_csv("results/drone_parallel_gpu_batch_60.csv")
 parallel = preprocess(parallel)
