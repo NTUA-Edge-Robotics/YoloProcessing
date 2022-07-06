@@ -13,6 +13,7 @@ parser.add_argument("images", help="The directory containing the images")
 parser.add_argument("mode", choices=["parallel", "linear"], help="Parallel or linear mode")
 parser.add_argument("model", help="The weights used to run the inference")
 parser.add_argument("results", help="Path to save the CSV results")
+parser.add_argument("-b", "-batches", required=True, nargs="+", type=int, help="The sizes of the batches", dest="batches")
 parser.add_argument("-cpu", action="store_true", help="Run inference on the CPU", dest="use_cpu")
 
 args = parser.parse_args()
@@ -20,7 +21,7 @@ args = parser.parse_args()
 all_images = list(Path(args.images).rglob("*"))
 model = args.model
 mode = args.mode
-batches = [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]
+batches = args.batches
 results = pandas.DataFrame()
 
 # Create results directory if not exists
