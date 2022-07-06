@@ -1,7 +1,6 @@
 import argparse
 import os
 from pathlib import Path
-from time import sleep
 import pandas
 
 from linear_yolo import linear_yolo
