@@ -8,7 +8,7 @@ The project aims to benchmark the performance of [YOLOv5](https://github.com/ult
 
 ## Primary Data Generation
 
-The API of the script can be found using `python src/generate_primary_data.py -h`. The script follows these steps :
+The API of the script can be found using `python src/generate_primary_data.py -h`. The script follows these steps&nbsp;:
 
 1. Run the inference with YOLOv5 with the specified batch sizes (number of images)
 1. Get the total inference time and the inference time for each image
