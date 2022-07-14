@@ -13,4 +13,4 @@ args = parser.parse_args()
 results = pandas.read_csv(args.results)
 results = preprocess(results)
 
-print(results["average_time"])
+print(results)
