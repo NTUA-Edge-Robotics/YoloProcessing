@@ -18,6 +18,8 @@ The API of the script can be found using `python src/generate_primary_data.py -h
 
 The following script will produce a graphic of the total inference time according to the batch size. The API of the script can be found using `python src/visualize_total_inference_time.py -h`.
 
+The following script will produce a table of the average inference time according to the batch size. The API of the script can be found using `python src/table_average_inference_time.py -h`.
+
 ## What could be improved
 
 - Log and handle errors
