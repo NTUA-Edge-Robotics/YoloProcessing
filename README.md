@@ -1,4 +1,4 @@
-# YoloParallel
+# YoloProcessing
 
 The project aims to benchmark the inference speed of [YOLOv5](https://github.com/ultralytics/yolov5) using parallel and linear processing.
 
