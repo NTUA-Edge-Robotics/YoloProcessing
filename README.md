@@ -2,6 +2,8 @@
 
 The project aims to benchmark the inference speed of [YOLOv5](https://github.com/ultralytics/yolov5) using parallel and linear processing.
 
+[Read, watch or cite our paper](https://github.com/NTUA-Edge-Robotics/.github/blob/main/profile/README.md)
+
 ## Installation
 
 1. Install the dependencies with `pip install -r requirements.txt`
